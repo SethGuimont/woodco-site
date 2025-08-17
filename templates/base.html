@@ -1,0 +1,77 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{.MetaDescription}}">
+  <title>{{.Title}} | Woodco Prefinishing</title>
+  <!-- CSS Reset + Basic Theme -->
+  <style>
+    :root {
+      --color-bg: #FFFFFF;
+      --color-text: #222;
+      --color-accent: #3B6E8F;
+      --max-width: 1200px;
+      --font-family: system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    header, footer {
+      background: var(--color-accent);
+      color: white;
+      padding: 1rem;
+    }
+    header nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    header nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    header nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: var(--max-width);
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+  <!-- HTMX -->
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/services/">Services</a>
+    <a href="/why-woodco/">Why Woodco</a>
+    <a href="/samples-brochures/">Samples & Brochures</a>
+    <a href="/contact-us/">Contact</a>
+  </nav>
+</header>
+<main>
+  {{template "content" .}}
+</main>
+<footer>
+  &copy; {{.Year}} Woodco Prefinishing. All rights reserved.
+</footer>
+</body>
+</html>
+{{end}}
