@@ -1,85 +1,51 @@
-// go.mod: require github.com/go-chi/chi/v5
-// main.go
 package main
 
 import (
 	"html/template"
 	"log"
-	"net/http"
+	"os"
+	"path/filepath"
 	"time"
-
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
 )
 
 type PageData struct {
-	Title           string
-	MetaDescription string
-	Year            int
+	Title, MetaDescription string
+	Year                   int
 }
 
-var tpl = template.Must(template.ParseGlob("templates/*.html"))
-
+func write(t *template.Template, tplName, out string, pd PageData) {
+	dst := filepath.Join("dist", out)
+	if err := os.MkdirAll(filepath.Dir(dst), 0o755); err != nil {
+		log.Fatal(err)
+	}
+	f, err := os.Create(dst)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+	if err := t.ExecuteTemplate(f, tplName, pd); err != nil {
+		log.Fatal(err)
+	}
+}
 func main() {
-	r := chi.NewRouter()
-	r.Use(middleware.RealIP, middleware.RequestID, middleware.Logger, middleware.Recoverer)
-
-	// Routes and pages with dynamic values
-	r.Get("/", page("index.html", "Home", "Welcome to Woodco Prefinishing. "))
-	r.Get("/services/", page("services.html", "Services", "Explore our prefinishing services,"))
-	r.Get("/services/millwork/", page("millwork.html", "Millwork Prefinishing", "Professional Millwork finishing,"))
-	r.Get("/services/doors/", page("doors.html", "Doors", "Prefinishing services for doors."))
-	r.Get("/services/siding/", page("siding.html", "Siding", "Durable siding finishes."))
-	r.Get("/services/paneling/", page("paneling.html", "Paneling", "Paneling prefinishing options."))
-	r.Get("/services/custom-finishes/", page("custom-finishes.html", "Custom Finishes", "Custom finishing solutions."))
-	r.Get("/services/custom-processes/", page("custom-processes.html", "Custom Processes", "Specialized finishing processes"))
-	r.Get("/why-woodco/", page("why-woodco.html", "Why Woodco", "What makes Woodco different"))
-	r.Get("/why-woodco/equipment/", page("equipment.html", "Equipment", "Our capabilities & equipment."))
-	r.Get("/why-woodco/history/", page("history.html", "History", "Woodco history and heritage."))
-	r.Get("/why-prefinishing/", page("why-prefinishing.html", "Why Prefinishing", "Benefits of prefinishing."))
-	r.Get("/samples-brochures/", page("samples-brochures.html", "Sample & Brochures", "Request samples or brochures."))
-	r.Get("/clients/", page("manufacturers.html", "Clients", "Manufactures we work with"))
-	r.Get("/contact-us/", contactGET)
-	r.Post("/contact-us/", contactPOST) // HTMX-friendly
-	// Legacy redirects
-	r.Get("/services/index.shtml", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "/services/", http.StatusMovedPermanently)
-	})
-	r.Get("/services/availability.shtml", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "/services/", http.StatusMovedPermanently)
-	})
-	r.Get("/video-tour.html", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "/", http.StatusMovedPermanently)
-	})
-	// static assets
-	fs := http.FileServer(http.Dir("public"))
-	r.Handle("/assets/*", http.StripPrefix("/assets/", fs))
-	log.Fatal(http.ListenAndServe(":8080", r))
-}
-
-func page(name, title, meta string) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		data := PageData{
-			Title:           title,
-			MetaDescription: meta,
-			Year:            time.Now().Year(),
-		}
-		if err := tpl.ExecuteTemplate(w, name, data); err != nil {
-			log.Printf("template %s error: %v", name, err)
-			http.Error(w, "template error", http.StatusInternalServerError)
-		}
-	}
-}
-
-func contactGET(w http.ResponseWriter, r *http.Request) {
-	tpl.ExecuteTemplate(w, "contact/form.html", map[string]any{"Errors": nil, "OK": false})
-}
-func contactPOST(w http.ResponseWriter, r *http.Request) {
-	// TODO: validate, rate-limit, send email
-	if r.Header.Get("HX-Request") == "true" {
-		// return fragment that replaces the form
-		tpl.ExecuteTemplate(w, "contact/success.partial.html", nil)
-		return
-	}
-	http.Redirect(w, r, "/contact-us/?ok=1", http.StatusSeeOther)
+	t := template.Must(template.ParseGlob("templates/*.html")) // or *.gohtml
+	y := time.Now().Year()
+	// Home + sections (match your actual filenames)
+	write(t, "index.html", "index.html", PageData{"Home", "Welcome to Woodco Prefinishing.", y})
+	write(t, "services.html", "services/index.html", PageData{"Services", "Explore our prefinishing services.", y})
+	write(t, "millwork.html", "services/millwork/index.html", PageData{"Millwork", "Professional millwork finishing.", y})
+	write(t, "doors.html", "services/doors/index.html", PageData{"Doors", "Prefinishing services for doors.", y})
+	write(t, "siding.html", "services/siding/index.html", PageData{"Siding", "Durable siding finishes.", y})
+	write(t, "paneling.html", "services/paneling/index.html", PageData{"Paneling", "Paneling prefinishing options.", y})
+	write(t, "custom-finishes.html", "services/custom-finishes/index.html", PageData{"Custom Finishes", "Custom finishing solutions.", y})
+	write(t, "custom-processes.html", "services/custom-processes/index.html", PageData{"Custom Processes", "Specialized finishing processes.", y})
+	write(t, "equipment.html", "why-woodco/equipment/index.html", PageData{"Equipment", "Our capabilities & equipment.", y})
+	write(t, "history.html", "why-woodco/history/index.html", PageData{"History", "Woodco history and heritage.", y})
+	write(t, "why-prefinishing.html", "why-prefinishing/index.html", PageData{"Why Prefinishing", "Benefits of prefinishing.", y})
+	write(t, "samples-brochures.html", "samples-brochures/index.html", PageData{"Samples & Brochures", "Request samples or brochures.", y})
+	write(t, "manufacturers.html", "clients/index.html", PageData{"Clients", "Manufacturers we work with.", y})
+	// Contact & Thank You pages (static)
+	write(t, "contact.html", "contact-us/index.html", PageData{"Contact Us", "Get in touch with Woodco Prefinishing.", y})
+	// a simple thanks page you create at templates/thanks.html
+	//write(t, "thanks.html", "thanks/index.html", PageData{"Thanks", "We received your message.", y})
 }

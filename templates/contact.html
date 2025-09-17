@@ -1,0 +1,23 @@
+{{define "content"}}
+<h1>Contact Us</h1>
+<form
+    name="contact"
+    method="POST"
+    netlify
+    netlify-honeypot="bot-field"
+    action="/thanks/"
+>
+    <!-- Required hidden input for Netlify to identify the form -->
+    <input type="hidden" name="form-name" value="contact" />
+    <!-- Honeypot (hidden from humans) -->
+    <p class="sr-only">
+        <label
+            >Don’t fill this out if you’re human: <input name="bot-field"
+        /></label>
+    </p>
+    <label>Name <input name="name" required /></label>
+    <label>Email <input name="email" type="email" required /></label>
+    <label>Message <textarea name="message" required></textarea></label>
+    <button type="submit">Send</button>
+</form>
+{{end}} {{template "base" .}}
