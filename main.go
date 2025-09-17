@@ -32,7 +32,7 @@ func main() {
 	y := time.Now().Year()
 	// Home + sections (match your actual filenames)
 	write(t, "index.html", "index.html", PageData{"Home", "Welcome to Woodco Prefinishing.", y})
-	//write(t, "services.html", "services/index.html", PageData{"Services", "Explore our prefinishing services.", y})
+	write(t, "services.html", "services/index.html", PageData{"Services", "Explore our prefinishing services.", y})
 	//write(t, "millwork.html", "services/millwork/index.html", PageData{"Millwork", "Professional millwork finishing.", y})
 	//write(t, "doors.html", "services/doors/index.html", PageData{"Doors", "Prefinishing services for doors.", y})
 	//write(t, "siding.html", "services/siding/index.html", PageData{"Siding", "Durable siding finishes.", y})
