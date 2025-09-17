@@ -28,7 +28,9 @@ func write(t *template.Template, tplName, out string, pd PageData) {
 	}
 }
 func main() {
-	t := template.Must(template.ParseGlob("templates/*.html")) // or *.gohtml
+
+	t := template.Must(template.ParseGlob("templates/_*.html"))
+	t = template.Must(t.ParseGlob("templates/*.html")) // or *.gohtml
 	y := time.Now().Year()
 	// Home + sections (match your actual filenames)
 	write(t, "index.html", "index.html", PageData{"Home", "Welcome to Woodco Prefinishing.", y})

@@ -1,4 +1,4 @@
-{{define "content"}}
+{{template "header" .}}
 <h1>Contact Us</h1>
 <form
     name="contact"
@@ -20,4 +20,4 @@
     <label>Message <textarea name="message" required></textarea></label>
     <button type="submit">Send</button>
 </form>
-{{end}} {{template "base" .}}
+{{template "footer" .}}

@@ -1,4 +1,4 @@
- 
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -6,21 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Get in touch with Woodco Prefinishing." />
         <title>Contact Us | Woodco Prefinishing</title>
-        
         <script
             src="https://kit.fontawesome.com/d1fe1a39af.js"
             crossorigin="anonymous"
         ></script>
-        
         <link rel="stylesheet" href="/assets/style.css" />
-        
         <script src="https://unpkg.com/htmx.org@1.9.12"></script>
     </head>
     <body>
         <header class="site-header">
             <div class="container header-bar">
                 <a class="brand" href="/">Woodco Prefinishing</a>
-                
                 <button
                     class="nav-toggle"
                     aria-expanded="false"
@@ -30,7 +26,6 @@
                     <span class="bar"></span><span class="bar"></span
                     ><span class="bar"></span>
                 </button>
-                
                 <nav
                     id="primary-nav"
                     class="nav-collapsible"
@@ -131,131 +126,66 @@
             </div>
         </header>
         <main class="container">
-<h1>Home</h1>
-<p>
-    Woodco Prefinishing provides prefinishing services for interior and exterior
-    products such as; millwork products, interior doors, exterior doors, trim,
-    stair-parts, siding, paneling and more. Woodco Prefinishing began in 1984 as
-    one of the first prefinishing companies in North America specializing in
-    interior doors and trim.
-</p>
+<h1>Contact Us</h1>
+<form
+    name="contact"
+    method="POST"
+    netlify
+    netlify-honeypot="bot-field"
+    action="/thanks/"
+>
+    
+    <input type="hidden" name="form-name" value="contact" />
+    
+    <p class="sr-only">
+        <label
+            >Don’t fill this out if you’re human: <input name="bot-field"
+        /></label>
+    </p>
+    <label>Name <input name="name" required /></label>
+    <label>Email <input name="email" type="email" required /></label>
+    <label>Message <textarea name="message" required></textarea></label>
+    <button type="submit">Send</button>
+</form>
 
-<p>
-    Woodco clientele include door manufacturers, millwork companies, lumber
-    companies, siding companies and large developers. Our finished product can
-    be seen in many sectors of the construction industry such as; residential,
-    multi-family, commercial, hotels & resorts, retail & entertainment, and
-    governmental & educational, and many others.
-</p>
-
-<p>
-    Through the years we have continually made refinements to our facility,
-    including; processes, equipment and technology updates.
-</p>
-
-<h3>Some of our services:</h3>
-<ul>
-    <li>High Quality Finishing</li>
-    <li>Advanced Technological Equipment</li>
-    <li>Environmentally Friendly Process</li>
-    <li>Timely Production</li>
-    <li>Exceptional Customer Service</li>
-    <li>Customized Customer Processes with Internet Tracking</li>
-    <li>Experience 2nd to None</li>
-    <li>Value that is Priceless</li>
-</ul>
-
-<p><i>Note:</i> Woodco Prefinishing is LEED Compliant</p>
 </main>
-        <footer class="site-footer">
-            <ul class="social">
-                <li>
-                    <a aria-label="Facebook" href="#"
-                        ><i class="fa-brands fa-facebook"></i
-                    ></a>
-                </li>
-                <li>
-                    <a aria-label="Twitter/X" href="#"
-                        ><i class="fa-brands fa-x-twitter"></i
-                    ></a>
-                </li>
-                <li>
-                    <a aria-label="LinkedIn" href="#"
-                        ><i class="fa-brands fa-linkedin"></i
-                    ></a>
-                </li>
-                <li>
-                    <a aria-label="YouTube" href="#"
-                        ><i class="fa-brands fa-youtube"></i
-                    ></a>
-                </li>
-            </ul>
-            <div class="container center">
-                &copy; 2025 Woodco Prefinishing. All rights reserved.
-            </div>
-        </footer>
-        <script>
-            
-            (function () {
-                const btn = document.querySelector(".nav-toggle");
-                const nav = document.getElementById("primary-nav");
-                if (!btn || !nav) return;
-                btn.addEventListener("click", () => {
-                    const expanded =
-                        btn.getAttribute("aria-expanded") === "true";
-                    btn.setAttribute("aria-expanded", String(!expanded));
-                    nav.classList.toggle("open", !expanded);
-                    
-                    if (expanded) {
-                        document
-                            .querySelectorAll('.dropbtn[aria-expanded="true"]')
-                            .forEach((b) =>
-                                b.setAttribute("aria-expanded", "false"),
-                            );
-                    }
-                });
-                
-                document.querySelectorAll(".dropbtn").forEach((dBtn) => {
-                    const menu = dBtn.nextElementSibling;
-                    dBtn.addEventListener("click", () => {
-                        const open =
-                            dBtn.getAttribute("aria-expanded") === "true";
-                        dBtn.setAttribute("aria-expanded", String(!open));
-                        if (!open) {
-                            
-                            document
-                                .querySelectorAll(".dropbtn")
-                                .forEach((b) => {
-                                    if (b !== dBtn)
-                                        b.setAttribute(
-                                            "aria-expanded",
-                                            "false",
-                                        );
-                                });
-                        }
-                    });
-                    
-                    dBtn.addEventListener("keydown", (e) => {
-                        if (e.key === "Escape")
-                            dBtn.setAttribute("aria-expanded", "false");
-                    });
-                    menu.addEventListener("keydown", (e) => {
-                        if (e.key === "Escape")
-                            dBtn.setAttribute("aria-expanded", "false");
-                    });
-                });
-                
-                document.addEventListener("click", (e) => {
-                    if (!e.target.closest(".dropdown")) {
-                        document
-                            .querySelectorAll(".dropbtn")
-                            .forEach((b) =>
-                                b.setAttribute("aria-expanded", "false"),
-                            );
-                    }
-                });
-            })();
-        </script>
-    </body>
+<footer class="site-footer">
+  <ul class="social">
+    <li><a aria-label="Facebook" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+    <li><a aria-label="Twitter/X" href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+    <li><a aria-label="LinkedIn" href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+    <li><a aria-label="YouTube" href="#"><i class="fa-brands fa-youtube"></i></a></li>
+  </ul>
+  <div class="container center">&copy; 2025 Woodco Prefinishing. All rights reserved.</div>
+</footer>
+<script>
+  
+  (function () {
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const ex = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!ex));
+        nav.classList.toggle('open', !ex);
+        if (ex) document.querySelectorAll('.dropbtn[aria-expanded="true"]').forEach(b => b.setAttribute('aria-expanded','false'));
+      });
+    }
+    document.querySelectorAll('.dropbtn').forEach((dBtn) => {
+      dBtn.addEventListener('click', () => {
+        const open = dBtn.getAttribute('aria-expanded') === 'true';
+        dBtn.setAttribute('aria-expanded', String(!open));
+        if (!open) document.querySelectorAll('.dropbtn').forEach(b => { if (b!==dBtn) b.setAttribute('aria-expanded','false'); });
+      });
+      dBtn.addEventListener('keydown', (e) => { if (e.key === 'Escape') dBtn.setAttribute('aria-expanded','false'); });
+      const menu = dBtn.nextElementSibling;
+      if (menu) menu.addEventListener('keydown', (e) => { if (e.key === 'Escape') dBtn.setAttribute('aria-expanded','false'); });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.dropdown')) document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded','false'));
+    });
+  })();
+</script>
+</body>
 </html>
 

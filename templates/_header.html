@@ -1,11 +1,11 @@
-
+{{define "header"}}
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Durable siding finishes." />
-        <title>Siding | Woodco Prefinishing</title>
+        <meta name="description" content="{{.MetaDescription}}" />
+        <title>{{.Title}} | Woodco Prefinishing</title>
         <script
             src="https://kit.fontawesome.com/d1fe1a39af.js"
             crossorigin="anonymous"
@@ -125,48 +125,6 @@
                 </nav>
             </div>
         </header>
-        <main class="container">
-<h1>Siding</h1>
-
-
-</main>
-<footer class="site-footer">
-  <ul class="social">
-    <li><a aria-label="Facebook" href="#"><i class="fa-brands fa-facebook"></i></a></li>
-    <li><a aria-label="Twitter/X" href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-    <li><a aria-label="LinkedIn" href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-    <li><a aria-label="YouTube" href="#"><i class="fa-brands fa-youtube"></i></a></li>
-  </ul>
-  <div class="container center">&copy; 2025 Woodco Prefinishing. All rights reserved.</div>
-</footer>
-<script>
-  
-  (function () {
-    const btn = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('primary-nav');
-    if (btn && nav) {
-      btn.addEventListener('click', () => {
-        const ex = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!ex));
-        nav.classList.toggle('open', !ex);
-        if (ex) document.querySelectorAll('.dropbtn[aria-expanded="true"]').forEach(b => b.setAttribute('aria-expanded','false'));
-      });
-    }
-    document.querySelectorAll('.dropbtn').forEach((dBtn) => {
-      dBtn.addEventListener('click', () => {
-        const open = dBtn.getAttribute('aria-expanded') === 'true';
-        dBtn.setAttribute('aria-expanded', String(!open));
-        if (!open) document.querySelectorAll('.dropbtn').forEach(b => { if (b!==dBtn) b.setAttribute('aria-expanded','false'); });
-      });
-      dBtn.addEventListener('keydown', (e) => { if (e.key === 'Escape') dBtn.setAttribute('aria-expanded','false'); });
-      const menu = dBtn.nextElementSibling;
-      if (menu) menu.addEventListener('keydown', (e) => { if (e.key === 'Escape') dBtn.setAttribute('aria-expanded','false'); });
-    });
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.dropdown')) document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded','false'));
-    });
-  })();
-</script>
-</body>
+        <main class="container">{{end}}</main>
+    </body>
 </html>
-
