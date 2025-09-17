@@ -10,7 +10,7 @@ assets:
 	# If your assets are in public/assets/* already:
 	# cp -R public/assets dist/
 	# Or, if you keep a flat public/style.css:
-	# cp public/style.css dist/assets/style.css
+	cp public/style.css dist/assets/style.css
 	# Copy any other static files (images, docs, etc.)
 	[ -d public ] && cp -R public/* dist/ || true
 build: clean export assets
