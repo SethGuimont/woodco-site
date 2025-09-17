@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{.MetaDescription}}">
+  <script src="https://kit.fontawesome.com/d1fe1a39af.js" crossorigin="anonymous"></script>
   <title>{{.Title}} | Woodco Prefinishing</title>
   <!-- CSS Reset + Basic Theme -->
   <style>
@@ -58,18 +59,42 @@
 </head>
 <body>
 <header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/services/">Services</a>
-    <a href="/why-woodco/">Why Woodco</a>
-    <a href="/samples-brochures/">Samples & Brochures</a>
-    <a href="/contact-us/">Contact</a>
+  <nav id="navemenu" class="navmenu">
+    <ul><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a>
+    	<ul>
+    		  <li><a href="/services/custom-finishes/">Custom Finishes</a></li>
+                  <li><a href="/services/custom-processes/">Custom Processes</a></li>
+                  <li><a href="/services/doors/">Doors</a></li>
+                  <li><a href="/services/millwork/">Millwork</a></li>
+                  <li><a href="/services/paneling/">Paneling</a></li>
+                  <li><a href="/services/siding/">Siding</a></li>
+    	</ul>
+    </li>
+     <li><a href="/samples-brochures/">Samples & Brochures</a></li>
+     <li><a href="/clients/">Clients</a></li>
+     <li><a href="/why-prefinishing/">Why Prefinishing</a></li>
+    <li><a href="/why-woodco/">Why Woodco</a>
+    	<ul>
+    		<li><a href="/why-woodco/equipment/">Equipment</a></li>
+                  <li><a href="/why-woodco/history/">History</a></li>
+    	</ul>
+    </li>
+    <li><a href="/contact-us/">Contact</a></li>
+    </ul>
   </nav>
 </header>
 <main>
   {{template "content" .}}
 </main>
 <footer>
+    <ul class="social-row">
+      <li><a href=""><i class="fab fa-facebook"></i></a></li>
+      <li><a href=""><i class="fab fa-twitter"></i></a></li>
+      <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+      <li><a href=""><i class="fab fa-youtube"></i></a></li>
+    </ul>
+
   &copy; {{.Year}} Woodco Prefinishing. All rights reserved.
 </footer>
 </body>

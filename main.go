@@ -29,7 +29,7 @@ func main() {
 	r.Get("/why-woodco/history/", page("history.html"))
 	r.Get("/why-prefinishing/", page("why-prefinishing.html"))
 	r.Get("/samples-brochures/", page("samples-brochures.html"))
-	r.Get("/clients/manufacturers/", page("clients/manufacturers.html"))
+	r.Get("/clients/", page("manufacturers.html"))
 	r.Get("/contact-us/", contactGET)
 	r.Post("/contact-us/", contactPOST) // HTMX-friendly
 	// Legacy redirects
