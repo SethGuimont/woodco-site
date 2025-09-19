@@ -47,6 +47,7 @@ func main() {
 	write(t, "distributors.html", "clients/distributors/index.html", PageData{"Distributors", "Distrubutors we work with.", y})
 	write(t, "large-box.html", "clients/large-box/index.html", PageData{"Large Box", "Large Box retail we work with.", y})
 	write(t, "manufacturers.html", "clients/manufacturers/index.html", PageData{"Clients", "Manufacturers we work with.", y})
+	write(t, "why-prefinishing.html", "why-prefinishing.html", PageData{"Why Prefinishing", "Why Prefinishing", y})
 	// Contact & Thank You pages (static)
 	write(t, "contact.html", "contact-us/index.html", PageData{"Contact Us", "Get in touch with Woodco Prefinishing.", y})
 	// a simple thanks page you create at templates/thanks.html
