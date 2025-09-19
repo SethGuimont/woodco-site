@@ -1,0 +1,220 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Custom finishing solutions." />
+        <title>Custom Finishes | Woodco Prefinishing</title>
+        <script
+            src="https://kit.fontawesome.com/d1fe1a39af.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js "></script>
+        <link
+            href=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css "
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/assets/style.css" />
+        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="container header-bar">
+                <a class="brand" href="/">Woodco Prefinishing</a>
+                <button
+                    class="nav-toggle"
+                    aria-expanded="false"
+                    aria-controls="primary-nav"
+                >
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="bar"></span><span class="bar"></span
+                    ><span class="bar"></span>
+                </button>
+                <nav
+                    id="primary-nav"
+                    class="nav-collapsible"
+                    aria-label="Primary"
+                >
+                    <ul class="nav">
+                        <li><a href="/">Home</a></li>
+                        <li class="dropdown">
+                            <button
+                                class="dropbtn"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Services
+                            </button>
+                            <ul class="menu" role="menu" aria-label="Services">
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/services/custom-finishes/"
+                                        >Custom Finishes</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/services/custom-processes/"
+                                        >Custom Processes</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/services/doors/"
+                                        >Doors</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/services/millwork/"
+                                        >Millwork</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/services/paneling/"
+                                        >Paneling</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/services/siding/"
+                                        >Siding</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/samples-brochures/"
+                                >Samples &amp; Brochures</a
+                            >
+                        </li>
+                        <li class="dropdown">
+                            <button
+                                class="dropbtn"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Clients
+                            </button>
+                            <ul class="menu" role="menu" aria-label="Clients">
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/clients/distributors/"
+                                        >Distributors</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/clients/large-box/"
+                                        >Large Box Retail</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/clients/manufacturers/"
+                                        >Manufacturers</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/why-prefinishing/">Why Prefinishing</a>
+                        </li>
+                        <li class="dropdown">
+                            <button
+                                class="dropbtn"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Why Woodco
+                            </button>
+                            <ul
+                                class="menu"
+                                role="menu"
+                                aria-label="Why Woodco"
+                            >
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/why-woodco/equipment/"
+                                        >Equipment</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/why-woodco/history/"
+                                        >History</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="/contact-us/">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class="container">
+<h3>Custom Finishes</h3>
+<ol>
+    <li>UV Variety of products</li>
+    <li>UV curable clear coating</li>
+    <li>Pre-catalyzed water based paint</li>
+    <li>Pre-catalyzed acrylic lacquer</li>
+    <li>Factory Authorized Cabot Finishes</li>
+    <li>In house custom stain or paint formulation</li>
+</ol>
+
+<p>
+    For more information on Custom Finishes, please fill out our
+    <a href="/contact-us/">contact form</a> or call us at 763-259-0061.
+</p>
+
+</main>
+<footer class="site-footer">
+  <ul class="social">
+    <li><a aria-label="Facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+    <li><a aria-label="Twitter/X" href="#"><i class="fab fa-twitter"></i></a></li>
+    <li><a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin"></i></a></li>
+  </ul>
+  <div class="container center">&copy; 2025 Woodco Prefinishing. All rights reserved.</div>
+</footer>
+<script>
+  
+  (function () {
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const ex = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!ex));
+        nav.classList.toggle('open', !ex);
+        if (ex) document.querySelectorAll('.dropbtn[aria-expanded="true"]').forEach(b => b.setAttribute('aria-expanded','false'));
+      });
+    }
+    document.querySelectorAll('.dropbtn').forEach((dBtn) => {
+      dBtn.addEventListener('click', () => {
+        const open = dBtn.getAttribute('aria-expanded') === 'true';
+        dBtn.setAttribute('aria-expanded', String(!open));
+        if (!open) document.querySelectorAll('.dropbtn').forEach(b => { if (b!==dBtn) b.setAttribute('aria-expanded','false'); });
+      });
+      dBtn.addEventListener('keydown', (e) => { if (e.key === 'Escape') dBtn.setAttribute('aria-expanded','false'); });
+      const menu = dBtn.nextElementSibling;
+      if (menu) menu.addEventListener('keydown', (e) => { if (e.key === 'Escape') dBtn.setAttribute('aria-expanded','false'); });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.dropdown')) document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded','false'));
+    });
+  })();
+</script>
+</body>
+</html>
+
