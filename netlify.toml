@@ -3,12 +3,16 @@
 # 301s for legacy paths you mentioned
 [[redirects]]
   from = "/services/index.shtml"
-  to = "/services/"
+  to = "/"
   status = 301
 [[redirects]]
   from = "/services/availability.shtml"
-  to = "/services/"
+  to = "/"
   status = 301
+[[redirects]]
+   from = "/why-woodco/video-tour/"
+   to="/"
+   status = 301
 # Security headers (nice-to-have)
 [[headers]]
   for = "/*"
