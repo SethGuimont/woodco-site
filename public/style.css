@@ -123,6 +123,7 @@ nav ul {
     padding: 0.45rem 0.8rem;
     color: #fff;
 }
+
 /* Expand dropdown when aria-expanded=true */
 .dropbtn[aria-expanded="true"] + .menu {
     display: block;
