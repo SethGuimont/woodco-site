@@ -1,7 +1,38 @@
 {{template "header" .}}
+<style>
+    form.contact-form label {
+        display: block; /* puts the label on its own line */
+        margin-bottom: 0.25rem; /* space between label text and input */
+        font-weight: 600; /* make labels a little bolder */
+    }
+    form.contact-form input,
+    form.contact-form textarea {
+        display: block;
+        width: 100%; /* make inputs full width */
+        max-width: 600px; /* optional: cap width */
+        margin-bottom: 1rem; /* space below each field */
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font: inherit;
+    }
+    form.contact-form button {
+        padding: 0.5rem 1rem;
+        background: #3b6e8f; /* or your accent */
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    form.contact-form button:hover {
+        background: #8b4513;
+    }
+</style>
+
 <h1 style="text-align: center">Contact Us</h1>
 <form
-    style="text-align: center"
+    class="contact-form"
     name="contact"
     method="POST"
     netlify
