@@ -3,7 +3,11 @@
     --text: #222;
     --accent: #8b4513;
     --max: 1200px;
-    --font: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    --font:
+        "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
 }
 *,
 *::before,
@@ -20,11 +24,19 @@ body {
     color: var(--text);
     line-height: 1.6;
 }
+
+main.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font: "Helvetica Neue";
+}
 /* Layout helpers */
 .container {
     max-width: var(--max);
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
 }
 .center {
     text-align: center;
@@ -162,6 +174,7 @@ nav ul {
 /* Main */
 main.container {
     padding: 2rem 0;
+    font: var(--font);
 }
 /* Footer */
 .site-footer {
