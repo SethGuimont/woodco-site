@@ -4,44 +4,81 @@
     --accent: #8b4513;
     --max: 1200px;
     --font:
-        "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
+        "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial,
+        sans-serif;
+    --font-body: "Open Sans", sans-serif;
+    --font-heading: "Roboto Slab", serif;
 }
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
+
 html,
 body {
     margin: 0;
+    padding: 0;
 }
+
 body {
-    font-family: var(--font);
+    font-family: var(--font-body);
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
 }
 
-main.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    font: "Helvetica Neue";
-}
-/* Layout helpers */
+/* Container (single source of truth) */
 .container {
+    width: 100%;
     max-width: var(--max);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 1rem; /* mobile-first */
 }
-.center {
-    text-align: center;
+
+@media (min-width: 768px) {
+    .container {
+        padding: 2rem;
+    }
 }
-/* Header / Nav */
+
+@media (min-width: 1200px) {
+    .container {
+        padding: 2rem 4rem;
+    }
+}
+
+/* Keep text readable */
+.container p,
+.container li {
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #2e2e2e;
+}
+
+/* Body text */
+p,
+li,
+a {
+    font-weight: 400;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
 .site-header {
     background: var(--accent);
     color: #fff;
@@ -59,7 +96,8 @@ main.container {
     font-weight: 800;
     letter-spacing: 0.2px;
 }
-/* Hamburger */
+
+/* Hamburger toggle */
 .nav-toggle {
     display: inline-flex;
     flex-direction: column;
@@ -70,23 +108,53 @@ main.container {
     justify-content: center;
     background: none;
     border: 0;
-    padding: 0;
     cursor: pointer;
     color: #fff;
 }
 .nav-toggle .bar {
-    display: block;
     width: 24px;
     height: 2px;
     background: currentColor;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
-/* Collapsible nav container */
+.nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* --- Mobile nav panel as off-canvas drawer --- */
 .nav-collapsible {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 75%;
+    max-width: 300px;
+    background: var(--accent);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    padding: 2rem 1rem;
+    z-index: 1000;
+    overflow-y: auto;
 }
 .nav-collapsible.open {
-    display: block;
+    transform: translateX(0);
+    opacity: 1;
 }
+body.nav-open {
+    overflow: hidden; /* lock background scroll */
+}
+
 /* Base nav list */
 nav ul {
     list-style: none;
@@ -96,7 +164,7 @@ nav ul {
 .nav {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.75rem;
 }
 .nav > li > a,
 .dropbtn {
@@ -107,11 +175,10 @@ nav ul {
     display: inline-block;
 }
 .nav a:hover,
-.dropbtn:hover,
-.nav a:focus,
-.dropbtn:focus {
+.dropbtn:hover {
     text-decoration: underline;
 }
+
 /* Dropdowns */
 .dropdown {
     position: relative;
@@ -122,46 +189,56 @@ nav ul {
     font: inherit;
     cursor: pointer;
 }
+
+/* Mobile submenu behavior */
 .menu {
     display: none;
-    position: static; /* mobile: visible as nested list when expanded */
-    background: #8b4513;
-    border-radius: 0.5rem;
-    padding: 0.25rem 0;
-    margin-left: 0.75rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: none;
+    padding-left: 1rem;
+    margin: 0;
 }
 .menu li a {
     display: block;
     padding: 0.45rem 0.8rem;
     color: #fff;
 }
-
-/* Expand dropdown when aria-expanded=true */
 .dropbtn[aria-expanded="true"] + .menu {
-    display: block;
+    display: flex;
 }
-/* Desktop styles */
+
+/* Desktop nav */
 @media (min-width: 900px) {
     .nav-toggle {
         display: none;
     }
     .nav-collapsible {
-        display: block !important;
+        position: static;
+        transform: none !important;
+        opacity: 1 !important;
+        height: auto;
+        width: auto;
+        background: none;
+        padding: 0;
+        overflow: visible;
     }
     .nav {
         flex-direction: row;
         gap: 1rem;
         align-items: center;
     }
-    /* Desktop dropdown menu */
     .menu {
         position: absolute;
-        left: 0;
         top: 100%;
+        left: 0;
         min-width: 220px;
         margin: 0;
         padding: 0.5rem 0;
+        background: var(--accent);
+        border-radius: 0.5rem;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        display: none;
     }
     .dropdown:hover .menu,
     .dropdown:focus-within .menu {
@@ -171,40 +248,61 @@ nav ul {
         white-space: nowrap;
     }
 }
-/* Main */
-main.container {
-    padding: 2rem 0;
-    font: var(--font);
-}
+
 /* Footer */
 .site-footer {
     background: var(--accent);
     color: #fff;
-    padding: 1rem 0;
+    padding: 2rem 1rem;
+    text-align: center;
 }
 .social {
     display: flex;
-    gap: 0.75rem;
     justify-content: center;
-    margin: 0 0 0.5rem 0;
+    gap: 1rem;
+    margin: 0 0 0.75rem 0;
     padding: 0;
-    list-style-type: none;
+    list-style: none;
 }
 .social a {
     color: #fff;
-    font-size: 1.1rem;
-    text-decoration: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 .social a:hover,
 .social a:focus {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+.footer-contact {
+    margin-top: 0.75rem;
+    text-align: center;
+}
+.footer-contact a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.25rem 0;
+}
+.footer-contact a:hover {
     text-decoration: underline;
 }
-/* Screen reader text */
+
+/* Screen reader utility */
 .sr-only {
     position: absolute;
     width: 1px;
     height: 1px;
-    padding: 0;
     margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 1px, 1px);

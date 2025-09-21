@@ -1,19 +1,52 @@
 [build]
   publish = "dist"
-# 301s for legacy paths you mentioned
+
+# --- Redirects for old WordPress / legacy paths ---
 [[redirects]]
   from = "/services/index.shtml"
   to = "/"
   status = 301
+
 [[redirects]]
   from = "/services/availability.shtml"
   to = "/"
   status = 301
+
 [[redirects]]
-   from = "/why-woodco/video-tour/"
-   to="/"
-   status = 301
-# Security headers (nice-to-have)
+  from = "/why-woodco/video-tour/"
+  to = "/"
+  status = 301
+
+# Catch old blog URLs
+[[redirects]]
+  from = "/blog/*"
+  to = "/"
+  status = 301
+
+# Catch WordPress categories & tags
+[[redirects]]
+  from = "/category/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/tag/*"
+  to = "/"
+  status = 301
+
+# Catch old WordPress uploads (images, docs, etc.)
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/"
+  status = 301
+
+# Catch stray .shtml pages
+[[redirects]]
+  from = "/*.shtml"
+  to = "/"
+  status = 301
+
+# --- Security headers ---
 [[headers]]
   for = "/*"
   [headers.values]
