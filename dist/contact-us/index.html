@@ -1,0 +1,270 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Get in touch with Woodco Prefinishing." />
+        <title>Contact Us | Woodco Prefinishing</title>
+        
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <script
+            src="https://kit.fontawesome.com/d1fe1a39af.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <link rel="stylesheet" href="/assets/style.css" />
+        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="container header-bar">
+                <a class="brand" href="/">
+                    <img
+                        src="/assets/logo_woodco.png"
+                        alt="Woodco Prefinishing"
+                        class="logo"
+                    />
+                </a>
+                <button
+                    class="nav-toggle"
+                    aria-expanded="false"
+                    aria-controls="primary-nav"
+                >
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="bar"></span><span class="bar"></span
+                    ><span class="bar"></span>
+                </button>
+                <nav
+                    id="primary-nav"
+                    class="nav-collapsible"
+                    aria-label="Primary"
+                >
+                    <ul class="nav">
+                        <li><a href="/">Home</a></li>
+                        <li class="dropdown">
+                            <button
+                                class="dropbtn"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Services
+                            </button>
+                            <ul class="menu" role="menu" aria-label="Services">
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/services/custom-finishes/"
+                                        >Custom Finishes</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/services/custom-processes/"
+                                        >Custom Processes</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/services/doors/"
+                                        >Doors</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/services/millwork/"
+                                        >Millwork</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/services/paneling/"
+                                        >Paneling</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/services/siding/"
+                                        >Siding</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/samples-brochures/"
+                                >Samples &amp; Brochures</a
+                            >
+                        </li>
+                        <li class="dropdown">
+                            <button
+                                class="dropbtn"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Clients
+                            </button>
+                            <ul class="menu" role="menu" aria-label="Clients">
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/clients/distributors/"
+                                        >Distributors</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/clients/large-box/"
+                                        >Large Box Retail</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/clients/manufacturers/"
+                                        >Manufacturers</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/why-prefinishing/">Why Prefinishing</a>
+                        </li>
+                        <li class="dropdown">
+                            <button
+                                class="dropbtn"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Why Woodco
+                            </button>
+                            <ul
+                                class="menu"
+                                role="menu"
+                                aria-label="Why Woodco"
+                            >
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/why-woodco/equipment/"
+                                        >Equipment</a
+                                    >
+                                </li>
+                                <li role="none">
+                                    <a
+                                        role="menuitem"
+                                        href="/why-woodco/history/"
+                                        >History</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="/contact-us/">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class="container">
+<style>
+    form.contact-form label {
+        display: block;  
+        margin-bottom: 0.25rem;  
+        font-weight: 600;  
+    }
+    form.contact-form input,
+    form.contact-form textarea {
+        display: block;
+        width: 100%;  
+        max-width: 600px;  
+        margin-bottom: 1rem;  
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font: inherit;
+    }
+    form.contact-form button {
+        padding: 0.5rem 1rem;
+        background: #3b6e8f;  
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    form.contact-form button:hover {
+        background: #8b4513;
+    }
+</style>
+
+<h1 style="text-align: center">Contact Us</h1>
+<form
+    class="contact-form"
+    name="contact"
+    method="POST"
+    netlify
+    netlify-honeypot="bot-field"
+    action="/thanks/"
+>
+    
+    <input type="hidden" name="form-name" value="contact" />
+    
+    <p class="sr-only">
+        <label
+            >Don’t fill this out if you’re human: <input name="bot-field"
+        /></label>
+    </p>
+    <label>Name <input name="name" required /></label>
+    <label>Email <input name="email" type="email" required /></label>
+    <label>Message <textarea name="message" required></textarea></label>
+    <button type="submit">Send</button>
+</form>
+<br />
+<p style="text-align: center">
+    You can also give us a call at <i>763-259-0061</i> or email us at
+    <i>sales@woodcoprefinishing.com</i>
+</p>
+
+<div style="text-align: center">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11253.873012281869!2d-93.190914!3d45.157367!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b32699e662b2b7%3A0xfbd67d7352949ee3!2s3140%20103rd%20Ln%20NE%2C%20Blaine%2C%20MN%2055449!5e0!3m2!1sen!2sus!4v1758311990286!5m2!1sen!2sus"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+</div>
+
+</main>
+<footer class="site-footer">
+  <ul class="social">
+    <li><a aria-label="Facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+    <li><a aria-label="Twitter/X" href="#"><i class="fab fa-twitter"></i></a></li>
+    <li><a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin"></i></a></li>
+  </ul>
+
+  <div class="footer-contact">
+    <p>
+      <a href="tel:+17632590061">(763) 259-0061</a> <br>
+      <a href="mailto:sales@woodcoprefinishing.com">sales@woodcoprefinishing.com</a>
+    </p>
+  </div>
+
+  <div class="container center">&copy; 2025 Woodco Prefinishing. All rights reserved.</div>
+</footer>
+<script src="/assets/nav.js"></script>
+</body>
+</html>
+
