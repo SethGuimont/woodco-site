@@ -245,6 +245,59 @@ nav ul {
     text-decoration: underline;
 }
 
+/* General styles for carousel */
+.testimonial-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial {
+    min-width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    text-align: center;
+    font-style: italic;
+}
+
+foot {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Carousel navigation controls */
+.carousel-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #8b4513; /* Accent color for the buttons */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+button:hover {
+    color: #525025; /* Darker color on hover */
+}
+
 /* Screen reader utility */
 .sr-only {
     position: absolute;
