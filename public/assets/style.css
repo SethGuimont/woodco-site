@@ -1,7 +1,12 @@
 :root {
     --bg: #fff;
     --text: #222;
-    --accent: #8b4513;
+    --accent: linear-gradient(
+        319deg,
+        #d2b48c 0%,
+        /* tan */ #8b4513 37%,
+        /* saddle brown */ #a0522d 100% /* sienna */
+    );
     --max: 1200px;
     --font:
         "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial,
@@ -24,7 +29,13 @@ body {
 
 body {
     font-family: var(--font-body);
-    background: var(--bg);
+    background-color: #addfad;
+    background-image: linear-gradient(
+        319deg,
+        #addfad 0%,
+        #525025 37%,
+        #bab86c 100%
+    );
     color: var(--text);
     line-height: 1.6;
 }
@@ -34,7 +45,18 @@ body {
     width: 100%;
     max-width: var(--max);
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0 1rem; /* consistent side padding */
+}
+
+main {
+    flex: 1 0 auto;
+    z-index: 1;
+    width: 80%;
+    margin: 2rem auto; /* centers it with top/bottom spacing */
+    padding: 2rem; /* breathing room inside */
+    background-color: #fcf5e5; /* parchment off-white */
+    border-radius: 8px; /* soft corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* gentle shadow */
 }
 
 /* Header */
@@ -49,7 +71,7 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.75rem 0;
+    padding: 0.75rem 2rem;
 }
 .brand {
     color: #fff;
