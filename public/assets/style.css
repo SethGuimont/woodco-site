@@ -91,6 +91,11 @@ body {
     transform: translateY(-6px) rotate(-45deg);
 }
 
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Sidebar nav (always hamburger-driven) */
 .nav-collapsible {
     position: fixed;
