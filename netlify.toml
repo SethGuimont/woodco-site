@@ -46,6 +46,13 @@
   to = "/"
   status = 301
 
+[[redirects]]
+    from = "https://www.woodcoprefinishing.com/*"
+    to = "https://woodcoprefinishing.com/:splat"
+    status = 301
+    force = true
+
+
 # --- Security headers ---
 [[headers]]
   for = "/*"
